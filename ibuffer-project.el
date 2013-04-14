@@ -86,7 +86,7 @@ sub-directories in a .nosearch file is encountered."
   (let* ((dir (file-name-as-directory dir))
          (list
           (if (funcall ibuffer-project-is-project-function dir)
-              (list dir))))
+              (list (expand-file-name dir)))))
     (if (file-exists-p (concat dir ".nosearch"))
         list
       (apply 'append list
