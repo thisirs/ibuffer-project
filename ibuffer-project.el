@@ -29,6 +29,7 @@
 ;;; Code:
 
 (require 'ibuffer)
+(require 'ibuf-ext)
 (require 'async)
 (require 'format-spec)
 
