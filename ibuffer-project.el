@@ -117,7 +117,7 @@ FORMAT."
                            (with-temp-buffer
                              (insert-file-contents file)
                              (goto-char (point-min))
-                             (string-match "^[^\n]+" (buffer-string))
+                             (string-match "^[^\n]*" (buffer-string))
                              (match-string 0 (buffer-string)))
                          (file-name-nondirectory
                           (directory-file-name dir)))))))
