@@ -149,6 +149,7 @@ and caches it in the file `ibuffer-project-cache-file'."
                   (point-max)
                   ibuffer-project-cache-file)))
 
+;;;###autoload
 (defun ibuffer-project-refresh (&optional cache)
   "Alter the variable `ibuffer-saved-filter-groups' to include
 projects filter groups. If already altered, refresh it using
