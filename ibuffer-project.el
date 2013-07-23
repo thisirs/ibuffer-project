@@ -7,7 +7,7 @@
 ;; Created: 13 april 2013
 ;; Keywords: ibuffer, convenience
 ;; URL: https://github.com/thisirs/ibuffer-project.git
-;; Package-Requires: ((async "1.1))
+;; Package-Requires: ((async "1.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
