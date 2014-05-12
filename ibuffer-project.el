@@ -184,9 +184,9 @@ original value before including."
        (lambda (result)
          ;; Re-run the current function now that the cache file is
          ;; written
-         (minibuffer-message "IBuffer cache written!")
          (setq ibuffer-project--list nil)
-         (ibuffer-project-refresh)))
+         (ibuffer-project-refresh)
+         (minibuffer-message "IBuffer cache written!")))
 
     (let ((list0 ibuffer-saved-filter-groups)
           next-filter-group)
