@@ -54,10 +54,6 @@ PATH2. NAME can contain several %-spec:
 - %I is replaced by the first line found in file .ibuffer at the
    root of the project")
 
-(defvar ibuffer-project-cache-file
-  (expand-file-name ".ibuffer-project.el" user-emacs-directory)
-  "Path to the ibuffer-project cache file.")
-
 (defvar ibuffer-project-is-project-function
   'ibuffer-project-is-project-default
   "Determines the function which is called to decide whether the
@@ -72,6 +68,10 @@ place-holder right after each filter groups' name. If it is a
 list of conses of the from (NAME . INDEX), insert a place-holder
 at index INDEX in the filter groups named NAME. If nil, no
 place-holder is inserted.")
+
+(defvar ibuffer-project-cache-file
+  (expand-file-name ".ibuffer-project.el" user-emacs-directory)
+  "Path to the ibuffer-project cache file.")
 
 (defvar ibuffer-project-place-holder-keyword 'place-holder
   "Symbol signaling a location to be replaced by the generated
