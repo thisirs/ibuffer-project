@@ -43,18 +43,20 @@
 
 (defvar ibuffer-project-alist
   '(("%S" "~/.emacs.d"))
-  "Alist of project names vs corresponding paths. Each element
-looks like (NAME . PATHS) where NAME is a string describing the
-project and PATHS is either the path or a list of paths of the
-project. NAME can contain %D that will be replaced by the name of
-the root directory of the project, %S will be replaced by the
-true name of the root directory of the project and %I will be
-replaced by the first line found in file .ibuffer if any at the
-root of the project or defaults to %D if not found.")
+  "Alist of project template names vs corresponding paths containing projects.
+
+Each element looks like (NAME PATH1 PATH2...) where NAME is a
+parametrized string describing the projects contained in PATH1,
+PATH2. NAME can contain several %-spec:
+
+- %D is replaced by the directory name
+- %S is replaced by the true directory name
+- %I is replaced by the first line found in file .ibuffer at the
+   root of the project")
 
 (defvar ibuffer-project-cache-file
   (expand-file-name ".ibuffer-project.el" user-emacs-directory)
-  "Path to the ibuffer project cache file.")
+  "Path to the ibuffer-project cache file.")
 
 (defvar ibuffer-project-is-project-function
   'ibuffer-project-is-project-default
@@ -63,9 +65,12 @@ directory given in argument is a root of a project." )
 
 (defvar ibuffer-project-autoinsert "default"
   "Variable that controls where the place-holders are inserted.
+
 If it is a string a place-holder is inserted right after that
 filter groups' name. If it is a list of string, insert a
-place-holder right after each filter groups' name. If nil, no
+place-holder right after each filter groups' name. If it is a
+list of conses of the from (NAME . INDEX), insert a place-holder
+at index INDEX in the filter groups named NAME. If nil, no
 place-holder is inserted.")
 
 (defvar ibuffer-project-place-holder-keyword 'place-holder
