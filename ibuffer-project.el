@@ -59,14 +59,14 @@ root of the project or defaults to %D if not found.")
 (defvar ibuffer-project-is-project-function
   'ibuffer-project-is-project-default
   "Determines the function which is called to decide whether the
-  directory given in argument is a root of a project." )
+directory given in argument is a root of a project." )
 
 (defvar ibuffer-project-autoinsert "default"
-  "Variable that controls where the place-holders are inserted. If
-  it is a string a place-holder is inserted right after that
-  filter groups' name. If it is a list of string, insert a
-  place-holder right after each filter groups' name. If nil, no
-  place-holder is inserted.")
+  "Variable that controls where the place-holders are inserted.
+If it is a string a place-holder is inserted right after that
+filter groups' name. If it is a list of string, insert a
+place-holder right after each filter groups' name. If nil, no
+place-holder is inserted.")
 
 (defvar ibuffer-project--list nil
   "Internal variable that contains the project list.")
