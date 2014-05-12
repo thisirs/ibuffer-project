@@ -68,6 +68,11 @@ filter groups' name. If it is a list of string, insert a
 place-holder right after each filter groups' name. If nil, no
 place-holder is inserted.")
 
+(defvar ibuffer-project-place-holder-keyword 'place-holder
+  "Symbol signaling a location to be replaced by the generated
+group filters. Change it only if it clashes with your original
+group filters.")
+
 (defvar ibuffer-project--list nil
   "Internal variable that contains the project list.")
 
@@ -210,16 +215,20 @@ original value before including."
       ;; Restore original filtering groups
       (setq ibuffer-saved-filter-groups ibuffer-project--original)
 
-      ;; Add a place-holder if needed
+      ;; Insert place-holders according to `ibuffer-project-autoinsert'
       (if ibuffer-project-autoinsert
           (let* ((filter-groups (copy-tree ibuffer-saved-filter-groups))
                  (places (if (listp ibuffer-project-autoinsert)
                              ibuffer-project-autoinsert
                            (list ibuffer-project-autoinsert))))
             (mapc
-             (lambda (name)
-               (let ((filter (assoc name filter-groups)))
-                 (setcdr filter (cons 'place-holder (cdr filter)))))
+             (lambda (place)
+               (let* ((name (if (consp place) (car place) place))
+                      (filter (assoc name filter-groups))
+                      (index (if (consp place) (cdr place) 0)))
+                 ;; Inserting at right index
+                 (setcdr (nthcdr (min index (1- (length filter))) filter)
+                         (cons ibuffer-project-place-holder-keyword (nthcdr (1+ index) filter)))))
              places)
             (setq ibuffer-saved-filter-groups filter-groups)))
 
@@ -228,7 +237,7 @@ original value before including."
             (read (with-temp-buffer
                     (prin1 ibuffer-saved-filter-groups (current-buffer))
                     (goto-char (point-min))
-                    (while (re-search-forward "place-holder" nil t)
+                    (while (re-search-forward (symbol-name ibuffer-project-place-holder-keyword) nil t)
                       (replace-match
                        (mapconcat 'prin1-to-string
                                   ibuffer-project--list " ")))
