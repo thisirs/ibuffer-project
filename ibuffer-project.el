@@ -23,8 +23,16 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; ibuffer-project.el adds filtering groups for your projects. See the
-;; README file for more information.
+
+;; This library adds filtering groups to ibuffer for your projects.
+
+;;; Installation:
+
+;; Put the following in your .emacs:
+;; (require 'ibuffer-project)
+;; (ibuffer-project-refresh t)
+
+;; See documentation on https://github.com/thisirs/ibuffer-project#ibuffer-project
 
 ;;; Code:
 
