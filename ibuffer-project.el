@@ -53,7 +53,7 @@ replaced by the first line found in file .ibuffer if any at the
 root of the project or defaults to %D if not found.")
 
 (defvar ibuffer-project-cache-file
-  (concat (file-name-as-directory user-emacs-directory) "cache/ibuffer-project")
+  (expand-file-name ".ibuffer-project.el" user-emacs-directory)
   "Path to the ibuffer project cache file.")
 
 (defvar ibuffer-project-is-project-function
