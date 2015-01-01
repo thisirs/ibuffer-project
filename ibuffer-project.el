@@ -5,8 +5,8 @@
 ;; Author: Sylvain Rousseau <thisirs at gmail dot com>
 ;; Maintainer: Sylvain Rousseau <thisirs at gmail dot com>
 ;; Created: 13 april 2013
-;; Keywords: ibuffer, convenience
 ;; URL: https://github.com/thisirs/ibuffer-project.git
+;; Keywords: ibuffer, convenience
 ;; Package-Requires: ((async "1.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
