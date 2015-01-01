@@ -1,6 +1,6 @@
 ;;; ibuffer-project.el --- Ibuffer filtering groups for projects
 
-;; Copyright (C) 2013-2014 Sylvain Rousseau <thisirs at gmail dot com>
+;; Copyright (C) 2013-2015 Sylvain Rousseau <thisirs at gmail dot com>
 
 ;; Author: Sylvain Rousseau <thisirs at gmail dot com>
 ;; Maintainer: Sylvain Rousseau <thisirs at gmail dot com>
