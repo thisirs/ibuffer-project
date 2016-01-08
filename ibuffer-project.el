@@ -40,6 +40,7 @@
 (require 'ibuf-ext)
 (require 'async)
 (require 'format-spec)
+(require 'find-func)                    ; For find-library-name
 
 (defvar ibuffer-project-alist
   '(("%S" "~/.emacs.d"))
